@@ -42,6 +42,13 @@ public class MainFrame extends JFrame{
         icon2 = new ImageIcon(newImgS);
         slayImg.setIcon(icon2);
 
+
+        jbtnExit.addActionListener(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
         jbtnRun.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -50,11 +57,6 @@ public class MainFrame extends JFrame{
                 MainFrame.this.setVisible(false);
             }
         });
-        jbtnExit.addActionListener(new AbstractAction() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.exit(0);
-            }
-        });
+
     }
 }
