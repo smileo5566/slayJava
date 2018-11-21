@@ -1,8 +1,11 @@
+import sun.awt.WindowClosingListener;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.Random;
-
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class Battle1 extends JFrame{
@@ -10,8 +13,8 @@ public class Battle1 extends JFrame{
     private JPanel jpnN = new JPanel(new GridLayout(2,6,1,1));
     private JPanel jpnC = new JPanel(new GridLayout(1,14,1,1));
     private JPanel jpnS = new JPanel(new GridLayout(2,4,1,1));
-//    Menu
-private JMenuBar jMB = new JMenuBar();
+
+    private JMenuBar jMB = new JMenuBar();
     private JMenu jMYo = new JMenu("Yo!");
     private JMenu jMTool = new JMenu("Tool");
     private JMenu jMAbout = new JMenu("About");
@@ -25,16 +28,18 @@ private JMenuBar jMB = new JMenuBar();
     private JLabel jlbBlank3 = new JLabel();
     private JLabel jlbBlank4 = new JLabel();
 
-    private ImageIcon icon1 = new ImageIcon("pencilMan.png");
-    private ImageIcon icon2 = new ImageIcon("monsterTako.png");
-    private ImageIcon icon3 = new ImageIcon("pencilManCut.png");
-    private ImageIcon icon4 = new ImageIcon("pencilManCry.png");
-    private ImageIcon icon5 = new ImageIcon("pencilManCutCry.png");
+    private ImageIcon icon1 = new ImageIcon("img/pencilMan.png");
+    private ImageIcon icon2 = new ImageIcon("img/monsterTako.png");
+    private ImageIcon icon3 = new ImageIcon("img/pencilManCut.png");
+    private ImageIcon icon4 = new ImageIcon("img/pencilManCry.png");
+    private ImageIcon icon5 = new ImageIcon("img/pencilManCutCry.png");
+    private ImageIcon icon6 = new ImageIcon("img/monsterTakoDead.png");
     private JLabel pencilManImg = new JLabel();
     private JLabel monsterTakoImg = new JLabel();
     private JLabel pencilManCutImg = new JLabel();
     private JLabel pencilManCryImg = new JLabel();
     private JLabel pencilManCutCryImg = new JLabel();
+    private JLabel monsterTakoDeadImg = new JLabel();
     private JLabel jlbBlank5 = new JLabel();
     private JLabel jlbBlank6 = new JLabel();
     private JLabel jlbBlank7 = new JLabel();
@@ -64,15 +69,15 @@ private JMenuBar jMB = new JMenuBar();
     private JLabel jlbBlank19 = new JLabel();
     private JLabel jlbBlank20 = new JLabel();
 
-
-    java.util.Timer timer1 = new java.util.Timer(true);
+    Random rdm1 = new Random();
 
     public Battle1(){
         init();
     }
     public void init(){
         this.setBounds(400,100,1000,550);
-        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultLookAndFeelDecorated(true);
         this.setJMenuBar(jMB);
         cp =this.getContentPane();
         cp.add(jpnN,BorderLayout.NORTH);
@@ -124,6 +129,11 @@ private JMenuBar jMB = new JMenuBar();
         jpnS.add(jbtSkill4);
         jpnS.add(jlbBlank20);
 
+        jlbHpchg1.setForeground(Color.red);
+        jlbHpchg2.setForeground(Color.red);
+
+
+
 
 //        火柴人圖片
         Image imgP = icon1.getImage();
@@ -150,6 +160,11 @@ private JMenuBar jMB = new JMenuBar();
         Image newImgT =imgT.getScaledInstance(163,130, Image.SCALE_SMOOTH);
         icon2 = new ImageIcon(newImgT);
         monsterTakoImg.setIcon(icon2);
+//        章魚怪圖片
+        Image imgTD = icon6.getImage();
+        Image newImgTD =imgTD.getScaledInstance(163,130, Image.SCALE_SMOOTH);
+        icon6 = new ImageIcon(newImgTD);
+        monsterTakoDeadImg.setIcon(icon6);
 
 
 
@@ -168,33 +183,91 @@ private JMenuBar jMB = new JMenuBar();
                 Battle1.this.setVisible(false);
                 Battle1 bf1 = new Battle1();
                 bf1.setVisible(true);
+
             }
         });
 
         jbtSkill1.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Random rdm1 = new Random() ;
-                int x = rdm1.nextInt(10) + 20;
+
+                int x = rdm1.nextInt(10) + 10;
                 int y = rdm1.nextInt(10) + 5;
-                if (Integer.parseInt(jlbTakoHpX.getText()) >= 0){
-                   jlbTakoHpX.setText(Integer.toString((Integer.parseInt(jlbTakoHpX.getText() ) - x)));
-                   jlbManHpX.setText(Integer.toString((Integer.parseInt(jlbManHpX.getText() ) - y)));
-                   jlbHpchg1.setText(Integer.toString(y));
-                   jlbHpchg2.setText(Integer.toString(x));
-                    if (Integer.parseInt(jlbTakoHpX.getText()) <= 0){
-                        jlbTakoHpX.setText("0");
+                Timer timer1 = new Timer();
+                timer1.schedule(new TimerTask() {
+                    public void run() {
+                        jlbHpchg2.setText("-" + Integer.toString(x));
+                        if ((Integer.parseInt(jlbTakoHpX.getText()) - x) <= 0){
+                            jlbTakoHpX.setText("0");
+                            monsterTakoImg.setIcon(icon6);
+                            JOptionPane.showMessageDialog(getParent(), "Win!");
+                            Battle1.this.setVisible(false);
 
 
-                        Battle1.this.setVisible(false);
-                    }
+                        }else jlbTakoHpX.setText(Integer.toString((Integer.parseInt(jlbTakoHpX.getText()) - x)));
+
+                        }
+
+                }, 1000);
+                    timer1.schedule(new TimerTask() {
+                        public void run() {
+                            jlbHpchg1.setText("-" + Integer.toString(y));
+                            jlbManHpX.setText(Integer.toString((Integer.parseInt(jlbManHpX.getText()) - y)));
+
+                        }
+                    }, 2000);
+                    timer1.schedule(new TimerTask() {
+                        public void run() {
+                            jlbHpchg2.setText(" ");
+                        }
+                    }, 3000);
+                    timer1.schedule(new TimerTask() {
+                        public void run() {
+                            jlbHpchg1.setText(" ");
+                        }
+                    }, 4000);
                 }
 
-            }
+
+
+
+
+
         });
         jbtSkill2.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                int x = rdm1.nextInt(10) + 10;
+                int y = rdm1.nextInt(10) + 5;
+                Timer timer1 = new Timer();
+                timer1.schedule(new TimerTask() {
+                    public void run() {
+                        jlbHpchg1.setText("+" + Integer.toString(x));
+                        if ((Integer.parseInt(jlbManHpX.getText()) + x) >= 100){
+                            jlbManHpX.setText("100");
+                        }else {
+                            jlbManHpX.setText(Integer.toString((Integer.parseInt(jlbManHpX.getText()) + x)));
+                        }
+                    }
+
+                }, 1000);
+                timer1.schedule(new TimerTask() {
+                    public void run() {
+                        jlbHpchg1.setText("-" + Integer.toString(y));
+                        jlbManHpX.setText(Integer.toString((Integer.parseInt(jlbManHpX.getText()) - y)));
+
+                    }
+                }, 2000);
+                timer1.schedule(new TimerTask() {
+                    public void run() {
+                        jlbHpchg2.setText(" ");
+                    }
+                }, 3000);
+                timer1.schedule(new TimerTask() {
+                    public void run() {
+                        jlbHpchg1.setText(" ");
+                    }
+                }, 4000);
 
             }
         });
@@ -211,10 +284,9 @@ private JMenuBar jMB = new JMenuBar();
             }
         });
 
-
+    }
 
 
 
 
     }
-}

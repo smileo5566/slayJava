@@ -4,8 +4,8 @@ import java.awt.event.ActionEvent;
 
 public class MainFrame extends JFrame{
     private Container cp;
-    private ImageIcon icon1 = new ImageIcon("pencilMan.png");
-    private ImageIcon icon2 = new ImageIcon("slayTitle.JPG");
+    private ImageIcon icon1 = new ImageIcon("img/pencilMan.png");
+    private ImageIcon icon2 = new ImageIcon("img/slayTitle.JPG");
     private JLabel pencilManImg = new JLabel();
     private JLabel slayImg = new JLabel();
     private JButton jbtnRun = new JButton("Run");
@@ -19,6 +19,7 @@ public class MainFrame extends JFrame{
     public void init(){
         this.setBounds(675,250,300,500);
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        this.setDefaultLookAndFeelDecorated(true);
         cp =this.getContentPane();
         cp.add(jpnN,BorderLayout.NORTH);
         cp.add(jpnC,BorderLayout.CENTER);
