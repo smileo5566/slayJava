@@ -1,4 +1,3 @@
-import sun.awt.WindowClosingListener;
 
 import javax.swing.*;
 import java.awt.*;
