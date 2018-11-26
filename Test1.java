@@ -77,3 +77,32 @@ public class Test1 extends JFrame {
         };
     }
 }
+<?php session_start(); ?>
+    <meta http-equiv="content-type" content="text/html ; charset=utf-8" >
+<?php
+include ('db_conn.inc.php');
+$result =mysqli_query($link,$sql);
+$row =mysqli_fetch_row($result);
+$title= $_POST['title'];
+$description = $_POST['description'];
+$inputdescription = $_POST['inputdescription'];
+$outputdescription =$_POST['outputdescription'];
+$input1=$_POST['input1'];
+$output1=$_POST['output1'];
+$input2=$_POST['input2'];
+$output2=$_POST['output2'];
+$input3=$_POST['input3'];
+$output3=$_POST['output3'];
+$state=$_SESSION['id'];
+$name=$_SESSION['name'];
+echo $name;
+if(!empty($title) && !empty($description) && !empty($inputdescription)&& !empty($outputdescription)&& !empty($input1)&& !empty($output1)){
+        echo '完成登錄題目';
+        $sql = "INSERT INTO `Program` (`title`,`userID`,`description`,`inputdescription`,`outputdescription`,`input1`,`output1`,`input2`,`output2`,`input3`,`output3`,`status`) VALUES ('$title','$name','$description','$inputdescription','$outputdescription','$input1','$output1','$input2','$output2','$input3','$output3','$state')";
+        $result = mysqli_query($link, $sql);
+        echo '<meta http-equiv="refresh" content="2,url=programmer.php">';
+    }
+else{
+    echo  '登錄失敗';
+    echo  '<meta http-equiv="refresh" content="2,url=programmer.php">';
+}
