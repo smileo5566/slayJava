@@ -21,7 +21,7 @@ public class Map extends JFrame{
     private ImageIcon icon5 = new ImageIcon("img/菁英.png");
     private JLabel sEnemyImg = new JLabel();
     private ImageIcon icon6 = new ImageIcon("img/菁英2.png");
-    private JLabel sEnemy2Img = new JLabel();
+    private JLabel sEnemyImg2 = new JLabel();
     private ImageIcon icon7 = new ImageIcon("img/寶相.png");
     private JLabel boxImg = new JLabel();
     private ImageIcon icon8 = new ImageIcon("img/寶相2.png");
@@ -36,6 +36,21 @@ public class Map extends JFrame{
     private JLabel questionImg2 = new JLabel();
     private ImageIcon icon13 = new ImageIcon("img/王.png");
     private JLabel bossImg = new JLabel();
+    private ImageIcon icon14 = new ImageIcon("img/敵人3.png");
+    private JLabel enemyImg3 = new JLabel();
+    private ImageIcon icon15 = new ImageIcon("img/商人3.png");
+    private JLabel shopImg3 = new JLabel();
+    private ImageIcon icon16 = new ImageIcon("img/菁英3.png");
+    private JLabel sEnemyImg3 = new JLabel();
+    private ImageIcon icon17 = new ImageIcon("img/寶相3.png");
+    private JLabel boxImg3 = new JLabel();
+    private ImageIcon icon18 = new ImageIcon("img/休息3.png");
+    private JLabel restImg3 = new JLabel();
+    private ImageIcon icon19 = new ImageIcon("img/問號3.png");
+    private JLabel questionImg3 = new JLabel();
+
+
+
 
     public Map(){
         init();
@@ -55,17 +70,17 @@ public class Map extends JFrame{
         jMYo.add(jMIRe);
         jMYo.add(jMIClose);
 
-        enemyImg2.setBounds(50,50,300,300);
+        enemyImg2.setBounds(50,250,50,50);
 
 //        敵人圖片
         Image imgE = icon1.getImage();
-        Image newImgE =imgE.getScaledInstance(300,300, Image.SCALE_SMOOTH);
+        Image newImgE =imgE.getScaledInstance(50,50, Image.SCALE_SMOOTH);
         icon1 = new ImageIcon(newImgE);
         enemyImg.setIcon(icon1);
 
 //        敵人2圖片
         Image imgE2 = icon2.getImage();
-        Image newImgE2 =imgE2.getScaledInstance(300,300, Image.SCALE_SMOOTH);
+        Image newImgE2 =imgE2.getScaledInstance(50,50, Image.SCALE_SMOOTH);
         icon2 = new ImageIcon(newImgE2);
         enemyImg2.setIcon(icon2);
 
@@ -91,7 +106,7 @@ public class Map extends JFrame{
         Image imgsE2 = icon6.getImage();
         Image newImgsE2 =imgsE2.getScaledInstance(300,300, Image.SCALE_SMOOTH);
         icon6 = new ImageIcon(newImgsE2);
-        sEnemy2Img.setIcon(icon6);
+        sEnemyImg2.setIcon(icon6);
 
 //        寶相圖片
         Image imgB = icon7.getImage();
@@ -133,6 +148,37 @@ public class Map extends JFrame{
         Image newImgBoss =imgBoss.getScaledInstance(300,300, Image.SCALE_SMOOTH);
         icon13 = new ImageIcon(newImgBoss);
         bossImg.setIcon(icon13);
+//        敵人3圖片
+        Image imgE3 = icon14.getImage();
+        Image newImgE3 =imgE3.getScaledInstance(300,300, Image.SCALE_SMOOTH);
+        icon14 = new ImageIcon(newImgE3);
+        enemyImg3.setIcon(icon14);
+//        商人3圖片
+        Image imgS3 = icon15.getImage();
+        Image newImgS3 =imgS3.getScaledInstance(300,300, Image.SCALE_SMOOTH);
+        icon15 = new ImageIcon(newImgS3);
+        shopImg3.setIcon(icon15);
+//        菁英3圖片
+        Image imgsE3= icon16.getImage();
+        Image newImgsE3 =imgsE3.getScaledInstance(300,300, Image.SCALE_SMOOTH);
+        icon16 = new ImageIcon(newImgsE3);
+        sEnemyImg3.setIcon(icon16);
+//        寶相3圖片
+        Image imgB3 = icon17.getImage();
+        Image newImgB3 =imgB3.getScaledInstance(300,300, Image.SCALE_SMOOTH);
+        icon17 = new ImageIcon(newImgB3);
+        boxImg3.setIcon(icon17);
+//        休息3圖片
+        Image imgR3 = icon18.getImage();
+        Image newImgR3 =imgR3.getScaledInstance(300,300, Image.SCALE_SMOOTH);
+        icon18 = new ImageIcon(newImgR3);
+        restImg3.setIcon(icon18);
+//        問號3圖片
+        Image imgQ3 = icon19.getImage();
+        Image newImgQ3 =imgQ3.getScaledInstance(300,300, Image.SCALE_SMOOTH);
+        icon19 = new ImageIcon(newImgQ3);
+        questionImg3.setIcon(icon19);
+
 
     }
 

@@ -53,8 +53,8 @@ public class MainFrame extends JFrame{
         jbtnRun.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Battle1 bt1 = new Battle1();
-                bt1.setVisible(true);
+                Map map1 = new Map();
+                map1.setVisible(true);
                 MainFrame.this.setVisible(false);
             }
         });
