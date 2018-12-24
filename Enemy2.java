@@ -1,9 +1,9 @@
 
 import javax.swing.*;
 
-public class Shop3 extends JFrame{
+public class Enemy2 extends JFrame{
 
-    public Shop3(){
+    public Enemy2(){
         init();
     }
     public void init(){
