@@ -12,6 +12,7 @@ public class Map extends JFrame{
     private Container cp;
     private JPanel jpn1 = new JPanel();
     private JPanel jpnN = new JPanel();
+    private JPanel jpnSetting = new JPanel();
     private JMenuBar jMB = new JMenuBar();
     private JMenu jMYo = new JMenu("Yo!");
     private JMenu jMTool = new JMenu("Tool");
@@ -140,6 +141,10 @@ public class Map extends JFrame{
     private  JLabel jlbHeartInt = new JLabel(Integer.toString(heartInt));
     private  JLabel jlbMoneyInt = new JLabel(Integer.toString(moneyInt));
 
+//    jpnSetting
+    private JButton jbtClose = new JButton("End");
+    private JButton jbtRetry = new JButton("Retry");
+
 //  Other
     private JLabel jlbForest = new JLabel("迷途森林");
     private Font fontWeiRuan80 = new Font("微軟正黑體", Font.BOLD,80);
@@ -148,6 +153,9 @@ public class Map extends JFrame{
     private Font fontWeiRuan40 = new Font("微軟正黑體", Font.BOLD,40);
 
     public static Vector VA = new Vector();
+
+    public static int pass1 = 1;
+
 
 
 
@@ -167,6 +175,7 @@ public class Map extends JFrame{
         cp.setBackground(new Color(141,141,130));
         cp.add(jpn1);
         cp.add(jpnN);
+        cp.add(jpnSetting);
         cp.add(enemyImgB);
         cp.add(enemyImg);
         cp.add(shopImg);
@@ -228,10 +237,10 @@ public class Map extends JFrame{
         jlbForest.setFont(fontWeiRuan80);
         jlbForest.setForeground(Color.WHITE);
 
+        jpnN.setBounds(0,0,1600,75);
         jpnN.setBackground(new Color(61,73,78));
         jpnN.setLayout(null);
         jpnN.setVisible(false);
-        jpnN.setBounds(0,0,1600,75);
         jlbName.setBounds(10,7,nameLength,65);
         jlbName.setFont(fontAntiqua65);
         jlbName.setForeground(Color.WHITE);
@@ -245,8 +254,13 @@ public class Map extends JFrame{
         jlbMoneyInt.setBounds(1030,10,100,50);
         jlbMoneyInt.setFont(fontAntiqua50);
         jlbMoneyInt.setForeground(Color.WHITE);
-        mapImg.setBounds(1400,10,100,50);
-        settingImg.setBounds(1500,10,100,50);
+        mapImg.setBounds(1400,10,53,50);
+        settingImg.setBounds(1500,10,53,52);
+
+        jpnSetting.setBackground(new Color(165,191,199));
+        jpnSetting.setBounds(500,100,600,550);
+        jpnSetting.setLayout(null);
+
 
 
 
@@ -572,6 +586,7 @@ public class Map extends JFrame{
                     enemyImg.setIcon(iconEnemyC2);
                     shopImg.setBounds(226,228,74,70);
                     shopImg.setIcon(iconShopB);
+                    pass1 = 2;
                 }
             }
 
@@ -605,6 +620,7 @@ public class Map extends JFrame{
                     shopImg.setIcon(iconShopC);
                     sEnemyImg.setBounds(325,234,76,59);
                     sEnemyImg.setIcon(iconsEnemyB);
+                    pass1 = 3;
                 }
             }
 
@@ -638,6 +654,7 @@ public class Map extends JFrame{
                     sEnemyImg.setIcon(iconsEnemyC);
                     questImg.setBounds(434,219,59,88);
                     questImg.setIcon(iconsEnemyB);
+                    pass1 = 4;
                 }
             }
 
@@ -670,6 +687,7 @@ public class Map extends JFrame{
                     questImg.setIcon(iconQuestC);
                     restImg.setBounds(525,228,77,81);
                     restImg.setIcon(iconRestB);
+                    pass1 = 5;
                 }
             }
 
@@ -703,6 +721,7 @@ public class Map extends JFrame{
                     restImg.setIcon(iconRestC);
                     questImg2.setBounds(634,219,59,88);
                     questImg2.setIcon(iconQuestB);
+                    pass1 = 6;
                 }
             }
 
@@ -735,6 +754,7 @@ public class Map extends JFrame{
                     questImg2.setIcon(iconQuestC2);
                     enemyImg2.setBounds(732,232,62,63);
                     enemyImg2.setIcon(iconsEnemyB);
+                    pass1 = 7;
                 }
             }
 
@@ -768,6 +788,7 @@ public class Map extends JFrame{
                     enemyImg2.setIcon(iconEnemyC3);
                     boxImg.setBounds(816,229,95,68);
                     boxImg.setIcon(iconBoxB);
+                    pass1 = 8;
                 }
             }
 
@@ -801,6 +822,7 @@ public class Map extends JFrame{
                     boxImg.setIcon(iconBoxC);
                     sEnemyImg2.setBounds(925,234,76,59);
                     sEnemyImg2.setIcon(iconEnemyB);
+                    pass1 = 9;
                 }
             }
 
@@ -833,6 +855,7 @@ public class Map extends JFrame{
                     enemyImg.setIcon(iconEnemyC2);
                     shopImg2.setBounds(1026,228,74,70);
                     shopImg2.setIcon(iconShopB);
+                    pass1 = 10;
                 }
             }
 
@@ -865,6 +888,7 @@ public class Map extends JFrame{
                     shopImg2.setIcon(iconShopC2);
                     questImg3.setBounds(1134,219,59,88);
                     questImg3.setIcon(iconQuestB);
+                    pass1 = 11;
                 }
             }
 
@@ -898,6 +922,7 @@ public class Map extends JFrame{
                     questImg3.setIcon(iconQuestC3);
                     restImg2.setBounds(1225,228,77,81);
                     restImg2.setIcon(iconRestB);
+                    pass1 = 12;
                 }
             }
 
@@ -931,6 +956,7 @@ public class Map extends JFrame{
                     restImg2.setIcon(iconRestC2);
                     enemyImg3.setBounds(1332,232,62,63);
                     enemyImg3.setIcon(iconEnemyB);
+                    pass1 = 13;
                 }
             }
 
@@ -964,6 +990,7 @@ public class Map extends JFrame{
                     enemyImg3.setIcon(iconEnemyC4);
                     restImg3.setBounds(1425,228,77,81);
                     restImg3.setIcon(iconRestB);
+                    pass1 = 14;
                 }
             }
 
@@ -992,8 +1019,10 @@ public class Map extends JFrame{
                     Rest15 r15 = new Rest15();
                     r15.setVisible(true);
                     Map.this.setVisible(false);
+                    restImg3.setBounds(1423,224,80,79);
                     restImg3.setSize(80,79);
                     restImg3.setIcon(iconEnemyC2);
+                    pass1 = 15;
                 }
             }
 
@@ -1022,6 +1051,7 @@ public class Map extends JFrame{
                     Boss16 boss = new Boss16();
                     boss.setVisible(true);
                     Map.this.setVisible(false);
+                    pass1 = 16;
                 }
             }
 
@@ -1042,6 +1072,15 @@ public class Map extends JFrame{
 
             }
         });
+        mapImg.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                Map2 mp2 = new Map2();
+                mp2.setVisible(true);
+            }
+        });
+
 
 
 
