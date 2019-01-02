@@ -1,24 +1,26 @@
-import javax.imageio.ImageIO;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.io.File;
-import java.io.IOException;
+
 
 public class MainFrame extends JFrame{
     private Container cp;
     private ImageIcon icon1 = new ImageIcon("img/Login.jpg");
-    private ImageIcon icon2 = new ImageIcon("img/LoginBtn.png");
-    private ImageIcon icon2_1 = new ImageIcon("img/LoginBtn.png");
-    private ImageIcon icon3 = new ImageIcon("img/End.png");
-    private ImageIcon icon3_1 = new ImageIcon("img/End.png");
     private JLabel LoginImg = new JLabel();
+    private ImageIcon icon2 = new ImageIcon("img/LoginBtn.png");
     private JLabel LoginBtnImg = new JLabel();
+    private ImageIcon icon2_1 = new ImageIcon("img/LoginBtn.png");
     private JLabel LoginBtn2Img = new JLabel();
+    private ImageIcon icon3 = new ImageIcon("img/End.png");
     private JLabel EndImg = new JLabel();
+    private ImageIcon icon3_1 = new ImageIcon("img/End.png");
     private JLabel End2Img = new JLabel();
+    private ImageIcon iconMaple = new ImageIcon("img/maple.jpg");
+    private JLabel mapleImg = new JLabel();
+
     private JButton jbtnRun = new JButton("Run");
     private JButton jbtnExit = new JButton("Exit");
     public MainFrame(){
@@ -34,7 +36,6 @@ public class MainFrame extends JFrame{
         cp.add(LoginBtnImg);
         cp.add(EndImg);
         cp.add(LoginImg);
-        this.setResizable(false);
 
         LoginImg.setBounds(0,0,800,600);
         LoginBtnImg.setBounds(600,239,81,38);
@@ -65,6 +66,11 @@ public class MainFrame extends JFrame{
         Image newImgE2 =imgE2.getScaledInstance( 71, 38, Image.SCALE_SMOOTH);
         icon3_1 = new ImageIcon(newImgE2);
         End2Img.setIcon(icon3_1);
+//        Maple
+        Image imgMaple = iconMaple.getImage();
+        Image newImgMaple =imgMaple.getScaledInstance( 71, 38, Image.SCALE_SMOOTH);
+        iconMaple = new ImageIcon(newImgMaple);
+        mapleImg.setIcon(icon3_1);
 
 
         jbtnExit.addActionListener(new AbstractAction() {

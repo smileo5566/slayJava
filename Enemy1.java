@@ -1,5 +1,5 @@
 
-import sun.awt.WindowClosingListener;
+
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,19 +10,16 @@ import java.awt.event.WindowListener;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.Vector;
 
 
 public class Enemy1 extends JFrame{
     private Container cp;
     public JFrame Map;
-
-
-
     private ImageIcon iconAshe = new ImageIcon("img/神射.png");
-    private JLabel Ashe = new JLabel();
-    private ImageIcon iconLanBao = new ImageIcon("img/神射.png");
-    private JLabel LanBao = new JLabel();
-
+    private JLabel jlbAshe = new JLabel();
+    private ImageIcon iconForest = new ImageIcon("img/forest.jpg");
+    private JLabel jlbForest = new JLabel();
 
     Random rdm1 = new Random();
 
@@ -30,24 +27,27 @@ public class Enemy1 extends JFrame{
         init(jFrame);
     }
     public void init(JFrame jFrame){
-        this.setBounds(400,100,1000,550);
-        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.setBounds(150,100,1600,850);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setDefaultLookAndFeelDecorated(true);
-
         this.setResizable(false);
         this.Map = jFrame;
         cp = this.getContentPane();
         cp.setLayout(null);
-        cp = this.getContentPane();
 
 
-        Enemy1.this.addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                super.windowClosing(e);
 
-            }
-        });
+        cp.add(jlbForest);
+
+        jlbForest.setBounds(0,0,1600,850);
+
+        Image imgForest = iconForest.getImage();
+        Image newImgForest =imgForest.getScaledInstance(1600,850, Image.SCALE_SMOOTH);
+        iconForest = new ImageIcon(newImgForest);
+        jlbForest.setIcon(iconForest);
+
+
+
 
 
 //        jbtSkill1.addActionListener(new AbstractAction() {

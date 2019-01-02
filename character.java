@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+
 public class character extends JFrame{
     private Container cp;
 
@@ -19,7 +20,7 @@ public class character extends JFrame{
 
     public static JTextField JtfName = new JTextField();
 
-    private ImageIcon iconAshe1 = new ImageIcon("img/AsheWhite.png" );
+    private ImageIcon iconAshe1 = new ImageIcon("img/Ashe.png" );
     private ImageIcon iconAshe2 = new ImageIcon("img/Ashe2.png");
     private ImageIcon iconAsheChoose = new ImageIcon("img/AsheChoose.png");
     private ImageIcon iconPointer = new ImageIcon("img/point.png");
@@ -32,6 +33,8 @@ public class character extends JFrame{
     private Font fontAntiqua30 = new Font("Book Antiqua", Font.BOLD,30);
 
     private JButton btnGo = new JButton("Go");
+
+
 
     public character(){
         init();
@@ -61,6 +64,7 @@ public class character extends JFrame{
 
         Title.setBounds(290,0,220,50);
         PointerImg.setBounds(385,70,30,66);
+        PointerImg.setVisible(false);
 
         AsheImg.setBounds(300,150,200,214);
         Name.setBounds(357,375, 86,50);
@@ -94,6 +98,8 @@ public class character extends JFrame{
         iconPointer = new ImageIcon(newImgP);
         PointerImg.setIcon(iconPointer);
 
+
+
         AsheImg.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -123,7 +129,6 @@ public class character extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (AsheImg.getIcon() == iconAsheChoose && JtfName.getText().length() != 0){
-                  JOptionPane.showConfirmDialog(null,"Click ok if you are ok", "Be ok!", JOptionPane.YES_NO_OPTION);
 
                     Map map1 = new Map();
                     map1.setVisible(true);

@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 
 public class Map2 extends JFrame{
     private Container cp;
-    private JButton jbtClose = new JButton("關閉!");
+    private JButton jbtClose = new JButton("Confirm");
 
     private ImageIcon iconEnemy = new ImageIcon("img/enemy.png");
     private JLabel enemyImg = new JLabel();
@@ -119,8 +119,8 @@ public class Map2 extends JFrame{
         enemyImg.setBounds(50,250,26,26);
         enemyImg2.setBounds(150,250,26,26);
         shopImg.setBounds(247,248,32,30);
-        sEnemyImg.setBounds(343,246,40,33);
-        questImg.setBounds(450,245,27,36);
+        questImg.setBounds(350,245,27,36);
+        sEnemyImg.setBounds(443,246,40,33);
         restImg.setBounds(547,246,33,34);
         questImg2.setBounds(650,245,27,36);
         enemyImg3.setBounds(750,250,26,26);
